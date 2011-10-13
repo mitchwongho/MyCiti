@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical"
+  android:background="#EE000000"
+  >
+  <ScrollView
+  	android:id="@+id/basic_article_layout"
+  	android:fillViewport="true"
+  	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent"
+  	>
+ 	<LinearLayout
+ 	  android:id="@+id/route_info_view"
+	  android:layout_width="fill_parent"
+	  android:layout_height="fill_parent"
+	  android:orientation="vertical"
+	 >
+	  <LinearLayout
+	  	android:layout_width="fill_parent"
+	  	android:layout_height="wrap_content"
+	  	android:orientation="vertical"
+		>
+		<!-- HEADING -->
+		  <TextView
+		  	android:id="@+id/article_layout_header"
+		  	android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textAppearance="@style/h1_font"
+		  	android:paddingLeft="8dip"
+		  	android:paddingRight="8dip"
+		  	/>
+		  <TextView
+		  	android:id="@+id/article_layout_description"
+		  	android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:layout_marginTop="8dp"
+		  	android:layout_marginBottom="8dp"
+		  	android:textAppearance="@style/normal_font"
+		  	android:paddingLeft="8dip"
+		  	android:paddingRight="8dip"
+		  	/>
+	  	</LinearLayout>
+	  <!-- This displays a section seperater between heading and content --> 	
+	  <View
+	  	android:layout_width="wrap_content"
+	  	android:layout_height="1dp"
+	  	android:background="@drawable/article_header_line"
+	  	/>
+	  <!-- WEEKDAYS -->
+	  <TextView
+	  	android:layout_width="fill_parent"
+	  	android:layout_height="wrap_content"
+	  	android:layout_marginLeft="16dp"
+	  	android:textAppearance="@style/h2_font"
+	  	android:text="@string/route_title_weekdays"
+	  	/>
+	  <TableLayout 
+	  	android:id="@+id/table_timetable_weekdays"
+	  	android:layout_width="fill_parent"
+	  	android:layout_height="wrap_content"
+	    android:visibility="visible"
+	    android:padding="16dp"
+	    android:layout_margin="16dp"
+	    android:background="@drawable/table_round_corners_bg"
+	    android:stretchColumns="0,1"
+	  	>
+	  </TableLayout>
+	  <!-- SATURDAYS -->
+	  <TextView
+	  	android:layout_width="fill_parent"
+	  	android:layout_height="wrap_content"
+	  	android:layout_marginLeft="16dp"
+	  	android:textAppearance="@style/h2_font"
+	  	android:text="@string/route_title_saturdays"
+	  	/>
+	  <TableLayout 
+	  	android:id="@+id/table_timetable_saterdays"
+	  	android:layout_width="fill_parent"
+	  	android:layout_height="wrap_content"
+	    android:visibility="visible"
+	    android:padding="16dp"
+	    android:layout_margin="16dp"
+	    android:background="@drawable/table_round_corners_bg"
+	    android:stretchColumns="0,1"
+	  	>
+	  </TableLayout>
+	  <!-- SUNDAYS & PUBLIC HOLIDAYS-->
+	  <TextView
+	  	android:layout_width="fill_parent"
+	  	android:layout_height="wrap_content"
+	  	android:layout_marginLeft="16dp"
+	  	android:textAppearance="@style/h2_font"
+	  	android:text="@string/route_title_sunday_holidays"
+	  	/>
+	  <TableLayout 
+	  	android:id="@+id/table_timetable_sundays"
+	  	android:layout_width="fill_parent"
+	  	android:layout_height="wrap_content"
+	    android:visibility="visible"
+	    android:padding="16dp"
+	    android:layout_margin="16dp"
+	    android:background="@drawable/table_round_corners_bg"
+	    android:stretchColumns="0,1"
+	  	>
+	  </TableLayout>
+	  
+	  	
+	  </LinearLayout>
+</ScrollView>
+</LinearLayout>
+

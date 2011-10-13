@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/reset_position" android:title="@string/menu_option_reset"></item>
+    
+    <item android:id="@+id/map_views" android:title="@string/menu_option_map_views">
+        <menu>
+            <item android:id="@+id/statellite_view" android:title="@string/menu_option_satellite_view" android:checkable="true" android:checked="false"></item>
+            <item android:id="@+id/street_view" android:title="@string/menu_option_street_view" android:checkable="true" android:checked="false"></item>
+            <item android:id="@+id/traffic_view" android:title="@string/menu_option_traffic_view" android:checked="false" android:checkable="true"></item>
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyCiti</string>
+    <!-- Tabs -->
+    <string name="tabs_routes">Routes</string>
+    <string name="tabs_timetable_fare">Timetable/Fares</string>
+    <string name="tabs_map">Map</string>
+    <string name="tabs_twitter">Twitter</string>
+    <string name="tabs_alerts">Info</string>
+    <!-- Routes -->
+    <string name="routes_tableview2civic">Table View - Civic Centre</string>
+    <string name="routes_tableview_feeder">Table View Feeder Routes</string>
+    <string name="routes_garden2civic2waterfront">Gardens - Civic - Waterfront</string>
+    <string name="routes_civic2airport">Civic Centre - Airport</string>
+    <string name="route_title_weekdays">Weekdays</string>
+    <string name="route_title_saturdays">Saturdays</string>
+    <string name="route_title_sunday_holidays">Sundays and Public Holidays</string>
+    <!-- MENU OPTIONS -->
+    <string name="menu_option_map_views">Map Views</string>
+    <string name="menu_option_reset">Reset</string>
+    <string name="menu_option_satellite_view">Satellite</string>
+    <string name="menu_option_street_view">Street</string>
+    <string name="menu_option_traffic_view">Traffic</string>
+    <string name="menu_option_goto">Goto</string>
+    <string name="menu_option_refresh">Refresh</string>
+</resources>

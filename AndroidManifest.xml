@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      android:versionCode="1"
+      android:versionName="1.0" package="com.touchswipeengage.myciti">
+    <uses-sdk android:minSdkVersion="7" android:maxSdkVersion="9" android:targetSdkVersion="8"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCOUNT_MANAGER"></uses-permission>
+    
+
+    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher" android:enabled="true" android:debuggable="true">
+        <activity android:name="HomeActivity" android:screenOrientation="portrait" android:theme="@style/generalnotitle" >
+        	<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.RouteInfoTabsActivity" android:screenOrientation="portrait" android:theme="@style/generalnotitle" />
+        <activity android:name=".ui.RouteInfoActivity" android:screenOrientation="portrait" android:theme="@style/generalnotitle" />
+        <activity android:name=".ui.RoutesMapActivity" android:screenOrientation="portrait" android:theme="@style/generalnotitle" />
+    	<!-- API FOR Google MAP API -->
+		<uses-library android:name="com.google.android.maps" />
+		<service android:name=".services.twitter.MyCitiUpdateTwitterService"></service>
+    </application>
+</manifest>

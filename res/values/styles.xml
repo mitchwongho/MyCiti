@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<style name="generalnotitle" >
+    <item name="android:windowNoTitle">true</item>
+</style>
+
+<style name="normal_font" >
+	<item name="android:textSize">16sp</item>
+	<item name="android:textColor">@color/app_white</item>
+	<item name="android:textStyle">normal</item>
+	<item name="android:textColorLink">@color/app_blue</item>
+</style>
+<style name="normal_font_black" >
+	<item name="android:textSize">16sp</item>
+	<item name="android:textColor">@color/app_black</item>
+	<item name="android:textStyle">normal</item>
+	<item name="android:textColorLink">@color/app_blue</item>
+</style>
+<style name="table_font" >
+	<item name="android:textSize">16sp</item>
+	<item name="android:textColor">@color/app_white</item>
+	<item name="android:textStyle">normal</item>
+</style>
+<style name="table_font_bold" >
+	<item name="android:textSize">16sp</item>
+	<item name="android:textColor">@color/app_red</item>
+	<item name="android:textStyle">bold</item>
+</style>
+<style name="h1_font" >
+	<item name="android:textSize">22sp</item>
+	<item name="android:textColor">@color/app_blue</item>
+	<item name="android:textStyle">bold</item>
+</style>
+<style name="h2_font" >
+	<item name="android:textSize">16sp</item>
+	<item name="android:textColor">@color/app_blue</item>
+	<item name="android:textStyle">normal</item>
+</style>
+<style name="tweet_date_font" >
+	<item name="android:textSize">12sp</item>
+	<item name="android:textColor">@color/app_red</item>
+	<item name="android:textStyle">normal</item>
+</style>
+<style name="tweet_font" >
+	<item name="android:textSize">14sp</item>
+	<item name="android:textColor">@color/app_white</item>
+	<item name="android:textStyle">normal</item>
+	<item name="android:textColorLink">@color/app_blue</item>
+</style>
+</resources>

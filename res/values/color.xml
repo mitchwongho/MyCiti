@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="section_seperator">#FF000000</color>
+    <color name="app_white">#FFFFFF</color>
+    <color name="app_blue">#45A2E0</color>
+    <color name="app_red">#CC2828</color>
+    <color name="app_light_grey">#808080</color>
+    <color name="app_dark_grey">#404040</color>
+    <color name="app_transparent">#00000000</color>
+    <color name="app_black">#000000</color>
+</resources>
