@@ -3,20 +3,34 @@
  */
 package com.touchswipeengage.myciti.fragments;
 
-import android.content.Intent;
+import com.touchswipeengage.myciti.R;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.touchswipeengage.myciti.ui.RoutesMapActivity;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * @author mwho
  *
  */
-public class MapFragment extends Fragment {
+public class InfoFragment extends Fragment {
+	private final static String HTML_CONTENT = 
+			"For assistance with MyCiTi services call the City of Cape Town - Transport Information Centre on 0800 65 64 63.<p/>"
+		+ "Other useful numbers<br/>"
+		+ "City of Cape Town general help-line<br/>"
+		+ "Call 0860 103 089 <br/>"
+		+ "Flight information </br>"
+		+ "Call 086 72 77 888 <br/>"
+		+ "<p/>"
+		+ "Emergency (fire/ambulance)<br/>"
+		+ "Call 107 from a landline or 021 480 7700 from a cell phone. "
+		+ "<p/>"
+		+ "The content and information presented in this application is provided as is and can be found at the MyCiTi website http://www.capetown.gov.za/en/MyCiti";
 	/* (non-Javadoc)
 	 * @see android.support.v4.app.Fragment#onCreate(android.os.Bundle)
 	 */
@@ -51,17 +65,9 @@ public class MapFragment extends Fragment {
             // the view hierarchy; it would just never be used.
             return null;
         }
-		//MapView view = new MapView(super.getActivity().getApplicationContext(), "0RWB4T5JzVtn3jGHM4sHTJd_HGZjUeCbyD1fTwg");
-		return new View(super.getActivity());
+		View v = (LinearLayout)inflater.inflate(R.layout.notifications_layout, container, false);
+		TextView tView = (TextView)v.findViewById(R.id.info_text_body);
+		tView.setText(Html.fromHtml(InfoFragment.HTML_CONTENT));
+		return v;
 	}
-
-	/* (non-Javadoc)
-	 * @see android.support.v4.app.Fragment#onViewCreated(android.view.View, android.os.Bundle)
-	 */
-	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState) {
-		;
-		super.startActivity(new Intent().setClass(super.getActivity(), RoutesMapActivity.class)); 
-	}
-	
 }

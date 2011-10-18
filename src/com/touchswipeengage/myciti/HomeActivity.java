@@ -3,9 +3,9 @@
  */
 package com.touchswipeengage.myciti;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Vector;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,10 +17,12 @@ import android.view.View;
 import android.widget.TabHost;
 import android.widget.TabHost.TabContentFactory;
 
-import com.touchswipeengage.myciti.fragments.NotificationsFragment;
+import com.touchswipeengage.myciti.fragments.InfoFragment;
 import com.touchswipeengage.myciti.fragments.RoutesFragment;
 import com.touchswipeengage.myciti.fragments.TwitterFragment;
+import com.touchswipeengage.myciti.fragments.WeatherFragment;
 import com.touchswipeengage.myciti.services.twitter.MyCitiUpdateTwitterService;
+import com.touchswipeengage.myciti.services.weather.MyCitiWeatherService;
 import com.touchswipeengage.myciti.ui.PagerAdapter;
 
 /**
@@ -94,6 +96,8 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 		// Do some background tasks
 		Intent twitterUpdateIntent = new Intent(this, MyCitiUpdateTwitterService.class);
 		super.startService(twitterUpdateIntent);
+		Intent weatherUpdateIntent = new Intent(this, MyCitiWeatherService.class);
+		super.startService(weatherUpdateIntent);
 		
 	}
 
@@ -110,10 +114,11 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
      */
     private void intialiseViewPager() {
 		
-		List<Fragment> fragments = new Vector<Fragment>();
+		List<Fragment> fragments = new ArrayList<Fragment>();
 		fragments.add(Fragment.instantiate(this, RoutesFragment.class.getName()));
 		fragments.add(Fragment.instantiate(this, TwitterFragment.class.getName()));
-		fragments.add(Fragment.instantiate(this, NotificationsFragment.class.getName()));
+		fragments.add(Fragment.instantiate(this, WeatherFragment.class.getName()));
+		fragments.add(Fragment.instantiate(this, InfoFragment.class.getName()));
 		this.mPagerAdapter  = new PagerAdapter(super.getSupportFragmentManager(), fragments);
 		//
 		this.mViewPager = (ViewPager)super.findViewById(R.id.viewpager);
@@ -133,10 +138,11 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
         this.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Twitter").setIndicator(getString(R.string.tabs_twitter),res.getDrawable(R.drawable.tab_ic_twitter)), ( tabInfo = new TabInfo("twitter", args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
+        this.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Weather").setIndicator(getString(R.string.tabs_weather),res.getDrawable(R.drawable.tab_ic_weather)), ( tabInfo = new TabInfo("weather", args)));
+        this.mapTabInfo.put(tabInfo.tag, tabInfo);
         this.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Notifications").setIndicator(getString(R.string.tabs_alerts),res.getDrawable(R.drawable.tab_ic_info)), ( tabInfo = new TabInfo("notifications", args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
         // Default to first tab
-        //this.onTabChanged("Tab1");
         //
         mTabHost.setOnTabChangedListener(this);
 	}
@@ -159,7 +165,6 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 	 * @see android.widget.TabHost.OnTabChangeListener#onTabChanged(java.lang.String)
 	 */
 	public void onTabChanged(String tag) {
-		//TabInfo newTab = this.mapTabInfo.get(tag);
 		int pos = this.mTabHost.getCurrentTab();
 		this.mViewPager.setCurrentItem(pos);
     }

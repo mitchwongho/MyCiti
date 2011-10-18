@@ -6,6 +6,7 @@
     <string name="tabs_timetable_fare">Timetable/Fares</string>
     <string name="tabs_map">Map</string>
     <string name="tabs_twitter">Twitter</string>
+    <string name="tabs_weather">Weather</string>
     <string name="tabs_alerts">Info</string>
     <!-- Routes -->
     <string name="routes_tableview2civic">Table View - Civic Centre</string>
@@ -23,4 +24,11 @@
     <string name="menu_option_traffic_view">Traffic</string>
     <string name="menu_option_goto">Goto</string>
     <string name="menu_option_refresh">Refresh</string>
+    <!-- WEATHER -->
+    <string name="weather_label__current">Current Conditions</string>
+    <string name="weather_label__curr_temp">Current Temp</string>
+    <string name="weather_label__high_temp">High</string>
+    <string name="weather_label__low_temp">Low</string>
+    <string name="weather_label__celcius">Deg. C</string>
+    <string name="weather_label__fahrenheit">Deg. F</string>
 </resources>

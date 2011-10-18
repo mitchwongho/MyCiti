@@ -47,4 +47,24 @@
 	<item name="android:textStyle">normal</item>
 	<item name="android:textColorLink">@color/app_blue</item>
 </style>
+<style name="weather_dow_font" >
+	<item name="android:textSize">18sp</item>
+	<item name="android:textColor">@color/app_white</item>
+	<item name="android:textStyle">bold</item>
+</style>
+<style name="weather_font" >
+	<item name="android:textSize">16sp</item>
+	<item name="android:textColor">@color/app_white</item>
+	<item name="android:textStyle">normal</item>
+</style>
+<style name="weather_min_font" >
+	<item name="android:textSize">16sp</item>
+	<item name="android:textColor">@color/app_blue</item>
+	<item name="android:textStyle">normal</item>
+</style>
+<style name="weather_max_font" >
+	<item name="android:textSize">16sp</item>
+	<item name="android:textColor">@color/app_red</item>
+	<item name="android:textStyle">normal</item>
+</style>
 </resources>

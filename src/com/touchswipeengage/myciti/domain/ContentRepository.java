@@ -87,11 +87,31 @@ public class ContentRepository {
 	
 	private void initStations() {
 		Station station = null;
-		station = new Station(1, "Civic Centre Station", "Transfer Station", -33.920328,18.429163);
+		station = new Station(1, "Civic Centre Station", "Transfer Station on Hertzog Boulevard at the City of Cape Town offices and Cape Town Civic Centre", -33.920328,18.429163);
 		this.routes.get(2).addStation(station);
-		station = new Station(2, "Granger Bay Station", "Granger Bay Station", -33.904509,18.414738);
+		station = new Station(2, "Granger Bay Station", "Granger Bay Station on Granger Bay Boulevard", -33.904509,18.414738);
 		this.routes.get(2).addStation(station);
-		station = new Station(3, "Stadium Station", "Stadium Station", -33.907982,18.412158);
+		station = new Station(3, "Stadium Station", "Stadium Station on Western Boulevard ", -33.907982,18.412158);
+		this.routes.get(2).addStation(station);
+		station = new Station(4, "V&A Waterfront", "Victoria & Alfred Waterfront on Breakwater Boulevard", -33.903501,18.419073);
+		this.routes.get(2).addStation(station);
+		station = new Station(5, "Cape Town Convention Centre", "Cape Town Convention Centre on Coen Steytler Ave", -33.9163,18.426722);
+		this.routes.get(2).addStation(station);
+		station = new Station(6, "Adderley Street", "Adderley Street Bus Terminal", -33.920593,18.425172);
+		this.routes.get(2).addStation(station);
+		station = new Station(7, "Castle Street", "Castle of Good Hope", -33.925428,18.426197);
+		this.routes.get(2).addStation(station);
+		station = new Station(8, "Longmarket Street", "Corner of Longmarket Street and Long Street. Return route terminal on the corner of Longmarket Street and Loop Street", -33.922465,18.419137);
+		this.routes.get(2).addStation(station);
+		station = new Station(9, "Dorp Street ", "Corner of Dorp Street and Long Street. Return route terminal on the corner of Dorp Street and Loop Street", -33.924015,18.417377);
+		this.routes.get(2).addStation(station);
+		station = new Station(10, "Bloem Street", "Corner of Bloem Street and Long Street. Return route terminal on the corner of Bloem Street and Loop Street", -33.925577,18.415698);
+		this.routes.get(2).addStation(station);
+		station = new Station(11, "Buitensingel Street", "Corner of Buitensingel Street and Long Street. Return route terminal on the corner of Buitensingel Street and Loop Street", -33.927253,18.414129);
+		this.routes.get(2).addStation(station);
+		station = new Station(12, "Government Ave", "Corner of Government Ave and Orange Street. Opposite the Mount Nelson Hotel", -33.930921,18.413499);
+		this.routes.get(2).addStation(station);
+		station = new Station(13, "Gardens Center", "The Gardens Center on Mill Street. This is the turn around point for this route", -33.934539,18.417914);
 		this.routes.get(2).addStation(station);
 		//
 		station = new Station(1, "Civic Centre Station", "Transfer Station", -33.920328,18.429163);
@@ -150,6 +170,25 @@ public class ContentRepository {
 	 */
 	public void setTweets(List<TweetItem> tweets) {
 		this.cache.put(TweetItem.class, tweets);
+	}
+	
+	/**
+	 * @return
+	 * @throws Exception
+	 */
+	public List<WeatherEntity> getWeatherForecast() throws Exception {
+		List<WeatherEntity> retval = null;
+		if (this.cache.containsKey(WeatherEntity.class)) {
+			retval = (List<WeatherEntity>)this.cache.get(WeatherEntity.class);
+		}
+		return retval;
+	}
+	
+	/**
+	 * @param entities
+	 */
+	public void setWeatherForecast(List<WeatherEntity> entities) {
+		this.cache.put(WeatherEntity.class, entities);
 	}
 	/**
 	 * Returns the instance of this class

@@ -7,7 +7,6 @@ import java.util.List;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.util.Log;
 
 import com.touchswipeengage.myciti.domain.ContentRepository;
 import com.touchswipeengage.myciti.domain.TweetItem;
@@ -34,7 +33,6 @@ public class MyCitiUpdateTwitterService extends IntentService {
 	protected void onHandleIntent(Intent arg0) {
 		// Get the latest tweets
 		try {
-			Log.d("MyCiti", "onHandleIntent");
 			List<TweetItem> retval = RESTClientWrapper.getInstance().getTwitterUserUpdate("MyCitiBus");
 			// Update ContentRepository cache
 			ContentRepository.getInstance().setTweets(retval);
@@ -44,7 +42,7 @@ public class MyCitiUpdateTwitterService extends IntentService {
 			broadcastIntent.addCategory(Intent.ACTION_DEFAULT);
 			sendBroadcast(broadcastIntent);
 		} catch (Exception e) {
-			Log.e("MyCiti", "Error Gettings Tweets", e);
+			//TODO Handle Exception
 		}
 	}
 

@@ -200,6 +200,7 @@ public class RoutesMapActivity extends MapActivity {
 	    inflater.inflate(R.menu.map_menu, menu);
 		super.onCreateOptionsMenu(menu);
 		SubMenu gotoSub = menu.addSubMenu(R.string.menu_option_goto);
+		gotoSub.setHeaderIcon(R.drawable.tab_ic_map);
 		List<Station> stations = this.mRoute.getStations();
 		for (Station station : stations) {
 			gotoSub.add(station.getName());
@@ -214,21 +215,12 @@ public class RoutesMapActivity extends MapActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.reset_position:
-			Station home = this.mRoute.getStations().get(0);
 			mapController.zoomToSpan(resetLat, resetLong);
 			mapController.animateTo(this.resetPoint);
 			break;
 		case R.id.statellite_view:
 			item.setChecked(!item.isChecked());
 			this.mapview.setSatellite(item.isChecked());
-			break;
-		case R.id.traffic_view:
-			item.setChecked(!item.isChecked());
-			this.mapview.setTraffic(item.isChecked());
-			break;
-		case R.id.street_view:
-			item.setChecked(!item.isChecked());
-			this.mapview.setStreetView(item.isChecked());
 			break;
 		default:
 			List<Station> stations = this.mRoute.getStations();

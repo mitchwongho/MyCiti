@@ -3,6 +3,8 @@
  */
 package com.touchswipeengage.myciti.fragments;
 
+import java.util.List;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -11,9 +13,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -21,7 +20,7 @@ import android.widget.ProgressBar;
 
 import com.touchswipeengage.myciti.R;
 import com.touchswipeengage.myciti.domain.ContentRepository;
-import com.touchswipeengage.myciti.services.twitter.MyCitiUpdateTwitterService;
+import com.touchswipeengage.myciti.domain.TweetItem;
 import com.touchswipeengage.myciti.ui.TwitterListBaseAdapter;
 
 /**
@@ -66,13 +65,40 @@ public class TwitterFragment extends Fragment {
             // the view hierarchy; it would just never be used.
             return null;
         }
+		this.mView = inflater.inflate(R.layout.twitter_layout, container, false);
+		//
+		// REGISTER BROADCAST RECEVIED
+		//
 		IntentFilter filter = new IntentFilter(TwitterFragment.MyCitiUpdateTwitterBroadcasrReciever.ACTION_RESP);
 		filter.addCategory(Intent.ACTION_DEFAULT);
 		this.receiver = new MyCitiUpdateTwitterBroadcasrReciever();
 		super.getActivity().registerReceiver(receiver, filter);
 		//
-		this.mView = inflater.inflate(R.layout.twitter_layout, container, false);
+		// INSTANTIATE LIST ADAPTER
+		//
+		ListView lv = (ListView)TwitterFragment.this.mView.findViewById(R.id.twitter_layout_listview);
+		TwitterFragment.this.adapter = TwitterListBaseAdapter.getInstance();
+		lv.setAdapter(TwitterFragment.this.adapter);
+		//
+		this.showList();
+		//
 		return this.mView;
+	}
+	
+	/**
+	 * Loads list data
+	 */
+	private void showList() {
+		try {
+			List<TweetItem> tweets = ContentRepository.getInstance().getTweets();
+			if (tweets == null || tweets.isEmpty())
+				return;
+			((ProgressBar)TwitterFragment.this.mView.findViewById(R.id.twitter_progressbar)).setVisibility(View.GONE);
+			TwitterFragment.this.adapter.loadData(TwitterFragment.this.getActivity(), tweets);
+			
+		} catch (Exception e) {
+			//TODO Handle exception
+		}
 	}
 
 	/**
@@ -85,17 +111,8 @@ public class TwitterFragment extends Fragment {
 		@Override
 		public void onReceive(Context arg0, Intent arg1) {
 			// Handle broadcast intent
-			((ProgressBar)TwitterFragment.this.mView.findViewById(R.id.twitter_progressbar)).setVisibility(View.GONE);
-			ListView lv = (ListView)TwitterFragment.this.mView.findViewById(R.id.twitter_layout_listview);
-			TwitterFragment.this.adapter = TwitterListBaseAdapter.getInstance();
-			lv.setAdapter(TwitterFragment.this.adapter);
-			try {
-				TwitterFragment.this.adapter.loadData(TwitterFragment.this.getActivity(), ContentRepository.getInstance().getTweets());
-			} catch (Exception e) {
-				Log.e("MyCiti", e.getMessage(), e);
-			}
+			TwitterFragment.this.showList();
 		}
-		
 	}
 	
 }
